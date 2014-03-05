@@ -37,6 +37,18 @@ Installation
 After downloading and unpacking gae-fastcounters, copy the 'fastcounter.py' file
 into your app's root directory.
 
+You'll need to create 5 queues in your [queue.yaml](https://developers.google.com/appengine/docs/python/config/queue)
+to persist the fastcounters to the datastore, e.g.:
+
+    queue:
+    - name: PersistCounter0
+    - name: PersistCounter1
+    - name: PersistCounter2
+    - name: PersistCounter3
+    - name: PersistCounter4
+
+You will also need to add a route for the handler 'CounterPersistIncr'
+at '/task/counter_persist_incr'
 
 Usage Notes
 -
